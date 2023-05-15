@@ -1,6 +1,7 @@
 import client from '@/apollo/client'
 import Layout from '@/components/Layout'
 import { GET_POSTS } from '@/queries/get-posts'
+import { NextSeo } from 'next-seo'
 import Link from 'next/link'
 import React from 'react'
 
@@ -12,9 +13,16 @@ type Props = {
 }
 
  
-const index = ({posts}: Props) => {
+const Index = ({posts}: Props) => {
   return (
     <Layout className='' >
+      <NextSeo 
+      title='blog page'
+      description='This is where our all blogs appear'
+      
+      
+      />
+
     <div className='bg-black  h-screen w-full flex flex-col justify-center items-center'>
       <h1 className='text-white text-[50px] text-center'>All blogs</h1>
       {posts.map((header:any)=>{
@@ -53,4 +61,4 @@ export async function getStaticProps() {
 }
 
 
-export default index
+export default Index
